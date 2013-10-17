@@ -1,9 +1,9 @@
 db/h2/
 logs/
 lib/
-libertic-annuaire.iml
-libertic-annuaire.ipr
-libertic-annuaire.iws
+LiberTIC.iml
+LiberTIC.ipr
+LiberTIC.iws
 modules/
 tmp/
 test-result/
