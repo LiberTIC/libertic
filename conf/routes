@@ -1,0 +1,41 @@
+#
+# Home page
+#
+GET     /                                                      Application.index
+GET     /blog                                                  Application.blog
+GET     /search                                                Application.search
+GET     /sitemap.xml                                           Application.sitemap
+GET     /robots.txt                                            Application.robots
+#
+# Contact
+#
+GET     /contact                                               Contact.index
+GET     /participez                                            Contact.participez
+POST    /contact                                               Contact.send
+GET     /contact/captcha                                       Contact.captcha
+
+#
+# Admin route
+#
+GET     /admin                                                 Application.admin
+
+#
+# Modules routes
+#
+*       /auth                                                  module:securesocial
+GET     /user/{<[0-9]+>userId}                                 User.view
+GET     /user/me                                               User.myProfile
+GET     /user/me/edit                                          User.edit
+GET     /user/save                                             User.save
+*       /                                                      module:search
+*       /                                                      module:cms
+
+#
+# Ignore favicon requests
+#
+GET     /favicon.ico                                           404
+
+#
+# Map static resources from the /app/public folder to the /public path
+#
+GET     /public/                                               staticDir:public

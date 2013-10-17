@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="Benoît Simard"/>
+        <meta name="robots" content="index, follow" />
+        <meta name="description" content="#{get 'description' /}" />
+        <meta name="keywords" content="#{get 'keywords' /}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="Aer6BmLRp_kjily3ltrCqys_5KBaRaS_iVIe73dlgVw" />
+
+        <link type="text/css" rel="stylesheet" href="@{'public/stylesheets/main.less'}" />
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/bsimard.png'}">
+        <link rel="alternate" type="application/rss+xml" title="Flux RSS" href="@{cms.Frontend.rss("blog")}" />
+        #{get 'moreHeader' /}
+
+        #{get 'moreStyles' /}
+        <!--[if lt IE 9]>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+    <body class="#{get 'mainClass' /}" itemscope itemtype="http://schema.org/WebPage">
+        <!-- Navbar -->
+        <header class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand" href="@{Application.index()}" title="Benoît Simard">
+                        <img class="baseline" src="@{'/public/images/bsimard.png'}" alt="Benoît SImard"/>
+                    </a>
+                    <nav class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li>
+                                <a href="@{Application.blog()}" title="Le Blog">Blog</a>
+                            </li>
+                            <li>
+                                <a href="@{cms.Frontend.show('about-me')}" title="About me">About me</a>
+                            </li>
+                            <li>
+                                <a href="@{Contact.index()}" title="Contactez moi !">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="form-search pull-right">
+                        <form enctype="application/x-www-form-urlencoded" accept-charset="utf-8" method="get" action="@{Application.search()}">
+                            <label for="search">Recherche</label>
+                            <div class="input-append">
+                                <input id="search" type="text" value="" name="search" class="input-large search-query" placeholder="Search">
+                                <button type="submit" class="btn"><i class="icon-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        #{doLayout /}
+
+        <footer id="footer">
+            <div class=" blockOdd">
+                <div class="container">
+                    <div class="row-fluid">
+                        <div class="span4">
+                            <ul class="pull-left inline">
+                                <li>
+                                    <a href="http://creativecommons.org/licenses/by-sa/3.0/" title="License Creative commons : BY-SA">
+                                        <img alt="CC-BY-SA" src="@{'/public/images/cc-by-sa.png'}" class="middle">
+                                    </a>
+                                </li>
+                                <li>|</li>
+                                <li id="mentions">
+                                    <a href="@{cms.Frontend.show('credits')}" title="crédits">
+                                        Crédits
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="span8">
+                            <ul class="pull-right inline">
+                                <li>
+                                    <a href="@{Contact.index()}" title="Me contacter">
+                                        <i class="icon-envelope"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.twitter.com/logisima" title="Suivez-moi sur Twitter">
+                                        <i class="icon-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.github.com/sim51" title="Mon compte Github">
+                                        <i class="icon-github-alt"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://www.linkedin.com/pub/beno%C3%AEt-simard/5/8a5/124" title="Mon profil Linked-In">
+                                        <i class="icon-linkedin"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        #{cms.display 'trakers' } #{/cms.display}
+
+        <script src="@{'/public/javascripts/jquery.min.js'}" type="text/javascript"></script>
+        <script src="@{'/public/javascripts/bootstrap.min.js'}" type="text/javascript"></script>
+        #{get 'moreScripts' /}
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.tooltip').tooltip();
+            });
+        </script>
+    </body>
+</html>

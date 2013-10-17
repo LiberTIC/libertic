@@ -1,0 +1,167 @@
+#
+# page home
+#
+
+#
+# page search
+#
+page.search.title  = Résultat de recherche pour "%s"
+
+#
+# page contact
+#
+page.contact.title                 = Me contacter
+page.contact.author                = Votre nom
+page.contact.author.placeholder    = Pierre Dupont
+page.contact.author.help           = Veuillez saisir votre nom et prénom
+page.contact.structure             = Votre structure
+page.contact.structure.placeholder = Libertic
+page.contact.structure.help        = Veuillez saisir votre structure
+page.contact.email                 = Votre email
+page.contact.email.placeholder     = pierre.dupont@yopmail.com
+page.contact.email.help            = Veuillez saisir votre adresse email
+page.contact.telephone             = Votre téléphone
+page.contact.telephone.placeholder = Libertic
+page.contact.telephone.help        = Veuillez saisir votre numéro de téléphone
+page.contact.message               = Votre message
+page.contact.message.help          = Veuillez saisir votre message
+page.contact.security              = Code de sécurité
+page.contact.security.help         = Veuillez saisir le code se sécurité (captcha). Si  vous ne parvenez pas à le déchiffrer, vous pouvez en changer en rechargeant la page (F5).
+page.contact.send                  = Envoyer
+
+#
+# Page user
+#
+page.user                  = Votre compte
+page.user.edit             = Modifier vos informations
+page.user.addAccount       = Lier votre compte
+page.user.addAccount.help  = Vous pouvez lier votre compte avec plusieurs site de réseaux sociaux
+page.user.displayname      = Votre nom
+page.user.email            = Votre email
+page.user.site             = Votre site internet
+page.user.save             = Enregistrer
+
+#
+# CMS
+#
+cms.blog.post.previous = Post précédent : %s
+cms.blog.post.next     = Post suivant : %s
+
+#
+# Login
+#
+securesocial.loginTitle                 = S'authentifier
+securesocial.login                      = S'authentifier
+securesocial.clickOnYourAccount         = Utilisez votre compte de l'un des réseaux suivants pour vous authentifier
+securesocial.useEmailAndPassword        = Ou utilisez votre login / password.
+securesocial.email                      = Adresse email
+securesocial.emailHelp                  = john.doe@gmail.com
+securesocial.password                   = Password
+securesocial.wrongUserPass              = Impossible de vous authentifier avec ces informations de connection.
+securesocial.required                   = Obligatoire
+securesocial.invalidEmail               = Adresse email invalide
+securesocial.signUp                     = Si vous ne possédez pas encore de compte, vous pouvez vous enregistrer
+securesocial.here                       = ici
+securesocial.badUserPasswordCombination = Impossible de vous authentifier avec ces informations de connection.
+# [type] gets replaced by the provider id in the login page.
+# can't use %s because the string is being processed in javascript.
+securesocial.openIdUser                 = Login pour [type]
+securesocial.openIdUserNotSpecified     = Login non spécifié
+securesocial.authError                  = Une erreur est survenue peendant votre authentification.
+
+#
+# SignUp
+#
+securesocial.signUpTitle          = S'enregistrer
+securesocial.signUpLabel          = Compléter le formulaire suivant
+securesocial.userName             = Login
+securesocial.name                 = Votre nom
+securesocial.password2            = Confirmation du password
+securesocial.cancel               = Annuler
+securesocial.passwordsMustMatch   = Les passwords ne correspondent pas
+securesocial.userNameTaken        = Ce login est déjà pris
+securesocial.activationTitle      = Bienvenue %s
+securesocial.activationSuccess    = Merci, votre compte vient d'être activé. CLiquez <a href="%s">ici</a> pour vous authentifier.
+securesocial.activateTitle        = Activation du compte
+securesocial.errorCreatingAccount = Une erreur est survenue lors de la création de votre compte.
+securesocial.accountNotActive     = Votre compte n'est pas activé. Si vous pensez que ceci est une erreur, veuillez contacter l'administrateur.
+securesocial.CreateAccount        = S'enregistrer
+securesocial.accountCreated       = Votre compte vient d'être créé. Vous allez recevoir un mail pour son activation.
+securesocial.invalidLink          = Le lien d'activiation que vous avez suivi est invalide.
+securesocial.createAccount        = S'enregistrer
+
+#
+# Welcome email
+#
+securesocial.greeting  = Bonjour %s,
+securesocial.emailText = Suivez ce <a href="%s">lien</a> pour activer votre compte.
+
+#
+# Password change
+#
+securesocial.changeTitle                = Changement de password
+securesocial.changeLabel                = Saisissez votre passord courant et le nouveau
+securesocial.changeError                = Une erreur est survenue lors du changement du password.
+securesocial.changeCurrentPasswordError = Le password entrée est incorrect
+securesocial.wrongPassword              = Password incorrect
+securesocial.currentPassword            = Password courant
+securesocial.newPassword                = Nouveau password
+securesocial.confirmPassword            = Confirmation du nouveau password
+securesocial.changeSuccess              = Votre password est changé
+securesocial.changeSuccessTitle         = Changement de password réussi
+
+#
+# Password reset
+#
+securesocial.resetSuccess        = Votre password a été réinitialisé
+securesocial.resetSuccessTitle   = Réinitialisation effectué
+securesocial.resetEmailSent      = L'email de réinitialisation de password, contient un password à usage unique, est envoyé à votre adresse email %s
+securesocial.resetEmailSentTitle = Email envoyé
+securesocial.resetTitle          = Réinitialisation du password
+securesocial.resetLabel          = Veuillez saisir l'adresse emial que vous utilisez pour vous authentifier
+securesocial.invalidResetTitle   = Le password de réinitialisation n'est pas valide
+securesocial.invalidResetLink    = Le lien de réinitialisation de password que vous avez suivi est invalide
+securesocial.resetError          = Une erreur inattendue est survenu lors de la réinitialisation de votre password.
+
+#
+# Error
+#
+error = Erreur
+error.checkform = Des erreurs de validation sont survenue. Veuillez vérifier votre saisie.
+
+#
+# For use in JavaExtensions.since tag
+#
+since.seconds = il y a %s second%s
+since.minutes = il y a %s minute%s ago
+since.hours   = il y a  %s heure%s ago
+since.days    = il y a %s jour%s ago
+since.months  = il y a %s moi%s ago
+since.years   = il y a %s année%s ago
+since.format  = MMM d, yyyy
+
+#
+# Validation messages
+#
+validation.required = Obligatoire
+validation.minSize  = La taille minimum est de %2$d
+validation.maxSize  = La taille maximum est de %2$d
+validation.email    = Adresse mail incorrecte
+validation.range    = N'est pas compris entre %2$d et %3$d
+validation.min      = Ne doit être plus petit que %2$d
+validation.max      = Ne doit pas être plus grand que %2$d
+validation.match    = Doit vérifier %2$s
+validation.isTrue   = Doit être coché
+validation.equals   = DOit être égal à &{%2$s}
+validation.invalid  = Valeur incorrecte
+validation.future   = Doit être une date future
+validation.after    = Doit être une date supérieur à %2$s
+validation.past     = Doit être une date passée
+validation.before   = Doit être une date avant %2$s
+validation.object   = Erreur de validation
+validation.notFound = Objet non trouvé pour l'identifiant %2$s
+validation.url      = N'est pas une url valide
+validation.phone    = N'est pas un numéro de téléphone valide
+validation.ipv4     = N'est pas une adresse IP valide
+validation.ipv6     = N'est pas une adresse IP v6 valide
+validation.unique   = Doit être unique

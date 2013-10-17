@@ -1,0 +1,100 @@
+#{extends 'page.html' /}
+#{set title: messages.get('securesocial.loginTitle') /}
+#{set mainClass:'securesocial' /}
+
+<script language="javascript" type="text/javascript" charset="utf-8">
+    function openid(type) {
+        $('#openid-type').val(type);
+        var msg = "&{'securesocial.openIdUser'}";
+        msg = msg.replace("[type]", type);
+        $('#openid-user').attr('placeholder', msg);
+        $('#openid-form').show('fast');
+    }
+</script>
+
+<div class="row-fluid">
+    <div class="span12">
+
+        <h1 itemprop="name">&{'securesocial.loginTitle'}</h1>
+
+        #{if flash.error}
+            <div class="alert alert-error">
+                ${flash.error}
+            </div>
+        #{/if}
+    
+        <div class="clearfix">
+            <p>&{'securesocial.clickOnYourAccount'}</p>
+    
+                #{list items: providers, as: 'provider'}
+                    #{if provider.type != securesocial.provider.ProviderType.userpass}
+                        #{if (provider.authMethod == securesocial.provider.AuthenticationMethod.OPENID ||
+                             provider.authMethod == securesocial.provider.AuthenticationMethod.OPENID_OAUTH_HYBRID) &&
+                           provider.needsUsername() }
+                            <a href="javascript:openid('${provider.type}')">                        
+                        #{/if}
+                        #{else}
+                            <a href="@{securesocial.SecureSocial.authenticate(provider.type.toString().toLowerCase())}">
+                        #{/else}
+                        <img src="@{'/public/images/providers/'}/${provider.type.toString().toLowerCase()}.png" title="${provider.type}"/></a>
+                    #{/if}
+                #{/list}
+        </div>
+
+        <div id="openid-form" class="clearfix" style="display:none;">
+            #{form @securesocial.SecureSocial.authenticate(), class:"form-horizontal blockDefault"}
+                <input id="openid-type" type="hidden" name="type">
+                <fieldset>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input id="openid-user" name="openid.user" class="large">
+                            <button type="submit" class="btn btn-small">&{'securesocial.login'}</button>
+                        </div>
+                    </div>
+                </fieldset>
+            #{/form}
+        </div>
+
+        #{if userPassEnabled }
+            <div class="clearfix" >
+                <p>&{'securesocial.useEmailAndPassword'}</p>
+                #{form @securesocial.SecureSocial.authenticate(securesocial.provider.ProviderType.userpass), class:"form-horizontal blockDefault"}
+                    <fieldset class="blockEven">
+
+                        <!-- Login field -->
+                        <div class="control-group #{ifError 'userName'} error #{/ifError}">
+                            <label class="control-label" for="displayName">&{'securesocial.userName'}</label>
+                            <div class="controls">
+                                <input type="text" id="displayName" class="large" name="userName" value="${flash.userName}"/>
+                                #{ifError 'userName'}
+                                    <span class="help-inline">#{error 'userName'/}</span>
+                                #{/ifError}
+                            </div>
+                        </div>
+
+                        <!-- Password field -->
+                         <div class="control-group #{ifError 'password'} error #{/ifError}">
+                            <label class="control-label" for="password">&{'securesocial.password'}</label>
+                            <div class="controls">
+                                <input id="password" class="large" name="password" type="password"/>
+                                #{ifError 'password'}
+                                    <span class="help-inline">&{'securesocial.required'}</span>
+                                #{/ifError}
+                            </div>
+                        </div>
+
+                        <!-- Submit -->
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary pull-right">&{'securesocial.login'}</button>
+                        </div>
+
+                    </fieldset>
+                #{/form}
+            </div>
+
+            <div class="clearfix">
+                <p>&{'securesocial.signUp'} #{a @securesocial.UsernamePasswordController.signUp()}&{'securesocial.here'}#{/a}</p>
+            </div>
+        #{/if}
+    </div>
+</div>    

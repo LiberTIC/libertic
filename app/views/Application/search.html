@@ -1,0 +1,83 @@
+#{extends 'page.html' /}
+#{set title:'Résultat de recherche' /}
+#{set mainClass:'search' /}
+
+<section class="row">
+    <div class="span12">
+
+        <h1 itemprop="name">&{'page.search.title', search}</h1>
+
+    #{list items:pages , as:'result'}
+        <article class="resultItem">
+            <a href="@{cms.Frontend.show(result.name)}" title="${result.title}">
+                <header>
+                    <h2>${result.title}</h2>
+                </header>
+                <div>
+                    #{if result.description}
+                        ${result.description.raw()}
+                    #{/if}
+                </div>
+            </a>
+        </article>
+    #{/list}
+
+    #{if nbItems > controllers.Application.ITEM_PER_PAGE}
+        <nav id="pagination" class="blockDefault">
+            <div class="span12 pagination">
+                <ul>
+                    *{ Previous link }*
+                    #{if page > 1}
+                        <li><a href="@{Application.search(query, page -1)}">&lt;</a></li>
+                    #{/if}
+
+                    #{if (page-2) > 0}
+                        #{if (page+2) <= (nbItems / controllers.Application.ITEM_PER_PAGE)}
+                            *{ Standard }*
+                            Standard
+                            %{for (int i=(page-2); i <= page+2; i++){}%
+                                <li><a#{if i==page} class="current"#{/if} href="@{Application.search(search, i)}"
+                                      title="Page n° ${i}">${i}</a></li>
+                            %{}}%
+                        #{/if}
+                        #{else}
+                            *{ Start from the end }*
+                            %{for (int i=((nbItems/controllers.Application.ITEM_PER_PAGE)-5); i <= ((nbItems/controllers.Application.ITEM_PER_PAGE)+1); i++){}%
+                                #{if i > 0 &&  i < ((nbItems/controllers.Application.ITEM_PER_PAGE) +1)}
+                                    <li><a#{if i==page} class="current"#{/if} href="@{Application.search(search, i)}"
+                                          title="Page n° ${i}">${i}</a></li>
+                                #{/if}
+                            %{}}%
+                        #{/else}
+                    #{/if}
+                    #{else}
+                        *{ Start from 1 to 5 }*
+                        #{if (nbItems % controllers.Application.ITEM_PER_PAGE) == 0}
+                            %{for (int i=1; i < 5; i++){}%
+                                #{if i <= ((nbItems/controllers.Application.ITEM_PER_PAGE) +1)}
+                                    <li><a#{if i==page} class="current"#{/if} href="@{Application.search(search, i)}"
+                                          title="Page n° ${i}">${i}</a></li>
+                                #{/if}
+                            %{}}%
+                        #{/if}
+                        #{else}
+                            %{for (int i=1; i < 5; i++){}%
+                                #{if i <= ((nbItems/controllers.Application.ITEM_PER_PAGE) +1)}
+                                    <li><a#{if i==page} class="current"#{/if} href="@{Application.search(search, i)}"
+                                          title="Page n° ${i}">${i}</a></li>
+                                #{/if}
+                            %{}}%
+                        #{/else}
+                    #{/else}
+
+                    *{ Next link }*
+                    #{if (page) < (nbItems / controllers.Application.ITEM_PER_PAGE)}
+                        <li><a href="@{Application.search(search, page+1)}">&gt;</a></li>
+                    #{/if}
+                </ul>
+            </div>
+        </nav>
+    #{/if}
+
+    </div>
+</section>

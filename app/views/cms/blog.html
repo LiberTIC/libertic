@@ -1,0 +1,90 @@
+#{extends 'page.html' /}
+#{set mainClass:'page' /}
+#{set title:page.title /}
+#{set description:page.description /}
+#{set keywords:page.keywords /}
+#{set 'moreHeader'}
+    <link rel="canonical" href="@@{cms.Frontend.show(page.name)}" />
+#{/set}
+
+
+<article class="row-fluid" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="span12">
+        <header>
+            <h1 itemprop="name">${page.title}</h1>
+            <meta itemprop="description" content="${page.description}">
+        </header>
+        <section itemprop="articleBody" id="${page.name}" #{if controllers.Security.check("admin") }contenteditable="true"#{/if}>
+            ${page.body.raw()}
+        </section>
+        <footer>
+            <ul class="inline pull-right metadata">
+                <li >
+                    <span class="metadata">Auteur :</span>
+                    <span>
+                        <a itemprop="author" href="@@{cms.Frontend.show("about-me")}" title="Benoît Simard" rel="author">Benoît Simard</a>
+                    </span>,
+                </li>
+                <li>
+                    <span class="metadata">Créé le :</span>
+                    <time itemprop="dateCreated" datetime="${page.created.format("yyyy-MM-dd")}">${page.created.format("dd MMM yyyy")}</time>
+                </li>
+                <li>
+                    <span class="metadata">Mis à jour :</span>
+                    <time itemprop="dateModified" datetime="${page.updated.format("yyyy-MM-dd")}">${page.updated.format("dd MMM yyyy")}</time>
+                </li>
+                <li><a href="@@{cms.Frontend.show(page.name)}" title="Permalien : ${page.title}" itemprop="url">Permalien</a></li>
+            </ul>
+        </footer>
+    </div>
+</article>
+
+<section id="disqus_thread"></section>
+
+<nav class="row-fluid blog" data-spy="affix" data-offset-top="100">
+    <div class="alpha-wrapper"></div>
+    <div class="span12">
+        <ul class="unstyled">
+        #{if page.previous()}
+            <li class="pull-left">
+                <a class="btn btn-primary" href="@{cms.Frontend.show(page.previous().name)}" title="&{'cms.blog.post.previous',page.previous().title}">&lt; ${page.previous().title}</a>
+            </li>
+        #{/if}
+        #{if page.next()}
+            <li class="pull-right">
+                <a class="btn btn-primary" href="@{cms.Frontend.show(page.next().name)}" title="&{'cms.blog.post.next', page.next().title}">${page.next().title} &gt;</a>
+            </li>
+        #{/if}
+        </ul>
+    </div>
+</nav>
+
+#{cms.editPage pageName:page.name /}
+
+#{set 'moreScripts'}
+    <!-- Addthis -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4fe07fd564a65b88"></script>
+    <script type="text/javascript">
+        addthis.layers({
+            'theme' : 'transparent',
+            'share' : {
+                'position' : 'right',
+                'numPreferredServices' : 5
+            }
+        });
+    </script>
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'bsimard'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+#{/set}

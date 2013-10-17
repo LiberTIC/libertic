@@ -1,0 +1,143 @@
+#{extends 'main.html' /}
+#{set mainClass:'home' /}
+#{set title:'Accueil' /}
+#{set description:'Benoît Simard est un développeur web basé sur nantes, spécialisé en logiciel libre, java & data' /}
+#{set keywords:'Benoît, Simard, Nantes, open-sources, libre, nantes, java, data, opendata' /}
+
+<!-- header-->
+<section id="overview" class="blockDefault firstBlock">
+    <div class="container">
+        <h1 itemprop="name">Benoît Simard</h1>
+        <!-- Mes valeurs -->
+        <div id="valeurs" class="row-fluid">
+            #{cms.display 'home_header' }
+                <ul class="inline span12">
+                    <li class="span3" id="free">
+                        <a href="#" class="tooltip span2" data-placement="bottom" data-toggle="tooltip" title="Un jour comme les autres, Gerry Lane et sa famille se retrouvent coincés dans un embouteillage monstre sur leur trajet quotidien. Ancien enquêteur des Nations Unies, Lane comprend immédiatement que la situation est inhabituelle">
+                            <i class="icon-linux"></i>
+                            <div>Libriste</div>
+                        </a>
+                    </li>
+                    <li class="span3" id="webdev">
+                        <a href="#" class="tooltip span2" data-placement="bottom" data-toggle="tooltip" title="Un jour comme les autres, Gerry Lane et sa famille se retrouvent coincés dans un embouteillage monstre sur leur trajet quotidien. Ancien enquêteur des Nations Unies, Lane comprend immédiatement que la situation est inhabituelle">
+                            <i class="iconmoon-earth"></i>
+                            <div>Développeur Web</div>
+                        </A>
+                    </li>
+                    <li class="span3" id="java">
+                        <a href="#" class="tooltip span2" data-placement="bottom" data-toggle="tooltip" title="Un jour comme les autres, Gerry Lane et sa famille se retrouvent coincés dans un embouteillage monstre sur leur trajet quotidien. Ancien enquêteur des Nations Unies, Lane comprend immédiatement que la situation est inhabituelle">
+                            <i class="icon-coffee"></i>
+                            <div>Aimant le café</div>
+                        </a>
+                    </li>
+                    <li class="span3" id="data">
+                        <a href="#" class="tooltip span2" data-placement="bottom" data-toggle="tooltip" title="Un jour comme les autres, Gerry Lane et sa famille se retrouvent coincés dans un embouteillage monstre sur leur trajet quotidien. Ancien enquêteur des Nations Unies, Lane comprend immédiatement que la situation est inhabituelle">
+                            <i class="iconmoon-stack"></i>
+                            <div>Et les données</div>
+                        </a>
+                    </li>
+                </ul>
+            #{/cms.display}
+        </div>
+    </div>
+</section>
+
+<!-- follow -->
+<section id="follow" class="blockEven">
+    <div class="container">
+        <div class="row-fluid ">
+            #{cms.display 'home_follow' }
+                <div class="span6">
+                    <h2>Retrouvez-moi sur le web</h2>
+                </div>
+                <div class="span6">
+                    <ul class="inline pull-right">
+                        <li>
+                            <div>
+                                <a href="https://www.twitter.com/logisima" title="Me suivre sur Twitter : @logisima"><i class="icon-twitter"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <a href="https://www.github.com/sim51" title="Mon profil github : sim51"><i class="icon-github-alt"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <a href="http://www.linkedin.com/pub/beno%C3%AEt-simard/5/8a5/124" title="Mon profil linked"><i class="icon-linkedin"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            #{/cms.display}
+        </div>
+    </div>
+</section>
+
+<section id="realisation" class="block">
+    <div class="container">
+        #{cms.display 'projects'}
+            <div class="row-fluid">
+                <div class="span4 title">
+                    <i class="icon-gears"></i>
+                    <h2>Mes réalisations</h2>
+                </div>
+                <div class="box span4">
+                    <h3>Mon premier projet</h3>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In schola desinis.<strong>Duo Reges: constructio interrete.</strong> <em>Quonam, inquit, modo?</em> Quod non faceret, si in voluptate summum bonum poneret. <em>Numquam facies.</em> Quod autem in homine praestantissimum atque optimum est, id deseruit.</p>
+                    </div>
+                </div>
+                <div class="box span4">
+                    <h3>Mon deuxième projet</h3>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In schola desinis.<strong>Duo Reges: constructio interrete.</strong> <em>Quonam, inquit, modo?</em> Quod non faceret, si in voluptate summum bonum poneret. <em>Numquam facies.</em> Quod autem in homine praestantissimum atque optimum est, id deseruit.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="box span4">
+                    <h3>Mon premier projet</h3>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In schola desinis.<strong>Duo Reges: constructio interrete.</strong> <em>Quonam, inquit, modo?</em> Quod non faceret, si in voluptate summum bonum poneret. <em>Numquam facies.</em> Quod autem in homine praestantissimum atque optimum est, id deseruit.</p>
+                    </div>
+                </div>
+                <div class="box span4">
+                    <h3>Mon premier projet</h3>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In schola desinis.<strong>Duo Reges: constructio interrete.</strong> <em>Quonam, inquit, modo?</em> Quod non faceret, si in voluptate summum bonum poneret. <em>Numquam facies.</em> Quod autem in homine praestantissimum atque optimum est, id deseruit.</p>
+                    </div>
+                </div>
+                <div class="box span4">
+                    <h3>Mon deuxième projet</h3>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In schola desinis.<strong>Duo Reges: constructio interrete.</strong> <em>Quonam, inquit, modo?</em> Quod non faceret, si in voluptate summum bonum poneret. <em>Numquam facies.</em> Quod autem in homine praestantissimum atque optimum est, id deseruit.</p>
+                    </div>
+                </div>
+            </div>
+        #{/cms.display}
+    </div>
+</section>
+
+<section id="blog" class="block">
+    <div class="container">
+        <h2>
+            <a href="@{cms.Frontend.rss("blog")}" title="Flux RSS">
+                <i class="icon-rss"></i>
+            </a>
+            Mes derniers tickets
+        </h2>
+        <div class="row-fluid">
+            #{list items:blogs, as:'blog'}
+                <a href="@{cms.Frontend.show(blog.name)}" title="${blog.title}">
+                    <div>
+                        <h3>${blog.title}</h3>
+                        <div>
+                            ${blog.description.raw()}
+                        </div>
+                    </div>
+                </a>
+            #{/list}
+        </div>
+    </div>
+</section>

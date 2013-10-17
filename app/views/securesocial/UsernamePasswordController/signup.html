@@ -1,0 +1,85 @@
+#{extends 'page.html' /}
+#{set title: messages.get('securesocial.signUpTitle') /}
+#{set mainClass:'securesocial' /}
+
+<div class="row-fluid">
+    <div class="span12">
+
+        <h1>&{'securesocial.signUpTitle'}</h1>
+    
+        #{if flash.error}
+            <div class="alert alert-error">
+                ${flash.error}
+            </div>
+        #{/if}
+    
+        <div class="control-group" >
+            <p>&{'securesocial.signUpLabel'}</p>
+            #{form @securesocial.UsernamePasswordController.createAccount(), autocomplete:'off', class:"form-horizontal blockDefault"}
+
+                <fieldset class="blockLight">
+
+                    <!-- Login field -->
+                    <div class="control-group #{ifError 'userName'}error#{/ifError}">
+                        <label class="control-label" class="control-label" for="userName">&{'securesocial.userName'}</label>
+                        <div class="controls">
+                            <input type="text" id="userName" class="large" name="userName" value="${flash.userName}"/>
+                            #{ifError 'userName'}
+                                <span class="help-inline">#{error 'userName'/}</span>
+                            #{/ifError}
+                        </div>
+                    </div>
+
+                    <!-- Name field -->
+                    <div class="control-group #{ifError 'displayName'} error #{/ifError}">
+                        <label class="control-label" for="displayName">&{'securesocial.name'}</label>
+                        <div class="controls">
+                            <input type="text" id="displayName" class="large" name="displayName" value="${flash.displayName}"/>
+                            #{ifError 'displayName'}
+                                <span class="help-inline">&{'securesocial.required'}</span>
+                            #{/ifError}
+                        </div>
+                    </div>
+
+                    <!-- Email field -->
+                    <div class="control-group #{ifError 'email'} error #{/ifError}">
+                        <label class="control-label" for="email">&{'securesocial.email'}</label>
+                        <div class="controls">
+                            <input type="email" id="email" class="large" name="email" value="${flash.email}" placeholder="&{'securesocial.emailHelp'}"/>
+                            #{ifError 'email'}
+                                <span class="help-inline">#{error 'email'/}</span>
+                            #{/ifError}
+                        </div>
+                    </div>
+
+                    <!-- Password field -->
+                    <div class="control-group #{ifError 'password'} error #{/ifError}">
+                        <label class="control-label" for="password">&{'securesocial.password'}</label>
+                        <div class="controls">
+                            <input id="password" class="large" name="password" type="password"/>
+                            #{ifError 'password'}
+                                <span class="help-inline">&{'securesocial.required'}</span>
+                            #{/ifError}
+                        </div>
+                    </div>
+
+                    <!-- Password confirmation field -->
+                    <div class="control-group #{ifError 'password2'} error #{/ifError}">
+                        <label class="control-label" for="password2">&{'securesocial.password2'}</label>
+                        <div class="controls">
+                            <input id="password2" class="large" name="password2" type="password"/>
+                            #{ifError 'password2'}
+                                <span class="help-inline">#{error 'password2'/}</span>
+                            #{/ifError}
+                        </div>
+                    </div>
+    
+                    <div class="form-actions">
+                        <a href="@{securesocial.SecureSocial.login()}" class="btn pull-right">&{'securesocial.cancel'}</a>
+                        <button type="submit" class="btn btn-primary pull-right">&{'securesocial.createAccount'}</button>
+                    </div>
+                </fieldset>
+            #{/form}
+        </div>
+    </div>
+</div>
