@@ -7,94 +7,84 @@ body {
   background-color: @background;
   font-family: @ftPrimary;
   height: 100%;
+
+  section.container {
+    background-color: @white;
+    box-shadow: 1px 0 10px #888, -1px 0 10px #888;
+
+    header {
+      background: url("/public/images/header.png") no-repeat scroll left top @white;
+      box-shadow: 1px 0 10px #888;
+
+      #base-line {
+        height: 219px;
+        div {
+          width: 375px;
+          min-height: 94px;
+          float: right;
+          margin: 60px 50px 0 0;
+          background: url("/public/images/libertic.png") no-repeat scroll right bottom @white;
+
+          p {
+            display: block;
+            text-align: justify;
+            width: 300px;
+            margin-bottom: 35px;
+          }
+        }
+      }
+
+      .navbar {
+        background: url("/public/images/header.png") no-repeat scroll left -220px @primary;
+        display: table;
+        padding-top: 30px;
+
+        // primary menu
+        ul {
+          padding-left: 30px;
+          li {
+            a {
+              color: @black;
+              text-transform: uppercase;
+              font-weight: bold;
+              font-size: 1.2em;
+              line-height: 30px;
+            }
+          }
+        }
+
+        #search {
+          margin: 0;
+          padding-right: 15px;
+
+          label {
+            display: none;
+          }
+          .input-append {
+            margin-bottom: 0;
+
+            input {
+              border-radius: 0;
+            }
+            button.btn {
+              border-radius: 0;
+              background-color: @white;
+            }
+          }
+        }
+      }
+      &:after {
+        clear: both;
+      }
+
+    }
+
+  }
 }
 
 h1, h2, h3, h4, h5 {
   font-family: @ftSecondary;
   color: @secondary;
-}
-
-h1, h2 {
-  font-weight: normal;
-}
-
-h1 {
-  margin: 30px 0 50px 0;
-}
-
-h2 {
-  text-transform: uppercase;
-  margin-top: 20px;
-  font-weight: normal;
-}
-
-h3 {
-  font-size: 16px;
-}
-
-a {
-  color: @primary;
-}
-
-
-.adminContainer {
-  margin-top: 50px;
-}
-
-// footer
-footer#footer {
-  border-top: 1px solid @grey;
-  margin-top: 80px;
-
-  .blockOdd {
-
-    ul {
-      margin-bottom: 0;
-      &.pull-left {
-        li {
-          font-family: @ftSecondary;
-          font-style: 11px;
-          &#mentions {
-            font-style: italic;
-          }
-          img {
-            height: 20px;
-          }
-
-          a {
-            padding: 5px 10px;
-            display: inline-block;
-          }
-          &:first-child {
-            padding-left: 0;
-          }
-        }
-      }
-      &.pull-right {
-        li {
-          a {
-            text-transform: uppercase;
-            text-decoration: none;
-            text-align: center;
-            display: inline-block;
-            padding: 5px 5px;
-            width: 25px;
-            i {
-              font-size: 20px;
-            }
-
-            &:hover {
-              .circle;
-              background-color: @secondary;
-            }
-          }
-          &:last-child {
-            padding-right: 0;
-          }
-        }
-      }
-    }
-  }
 }
 
 // CMS tool bar

@@ -4,72 +4,117 @@
 #{set description:'' /}
 #{set keywords:'' /}
 
-<section id="blog" class="block">
-    <div class="container">
-        <h2>
-            <a href="@{cms.Frontend.rss("blog")}" title="Flux RSS">
-                <i class="icon-rss"></i>
+<h1>LiberTIC</h1>
+
+<section id="actu" class="row-fluid">
+    <h2>Actualité</h2>
+
+    <div class="row-fluid">
+        <article class="span8">
+            <h3>Projet Pilote d'Ouverture des Petites Communues</h3>
+            <div class="metadata">
+                publié le 28.02.2013 par LiberTIC
+            </div>
+            <div>
+                <img class="pull-left" src="" alt="">
+                <div class="pull-left">
+                    <p>
+                        Tous les territoires ne sont pas égaux face au développement des usages numériques. Les zones rurales et petites communes restent encore largement asbsentes des deémarches d'ouverture de données. A défaut de présence d'acteurs de l'innovation, de moyens et de données qualifiées, les initiatives communales sont-elles pour autant condamnées à la marginalisation ?
+                    </p>
+                    <a href="#" title="Lire la suite">[ Lire la suite + ]</a>
+                </div>
+            </div>
+        </article>
+
+        <div class="span4">
+            <a href="#" title="">
+                Découvrez plus d'actus de LiberTIC sur notre blog !
             </a>
-            Mes derniers tickets
-        </h2>
-        <div class="row-fluid">
-            #{list items:blogs, as:'blog'}
-                <a href="@{cms.Frontend.show(blog.name)}" title="${blog.title}">
-                    <div>
-                        <h3>${blog.title}</h3>
-                        <div>
-                            ${blog.description.raw()}
-                        </div>
-                    </div>
-                </a>
-            #{/list}
         </div>
+
     </div>
+
 </section>
 
-<section id="projects" class="block">
-    <div class="container">
-    #{cms.display 'projects'}
-        <div class="row-fluid">
-            <div class="box span6">
-                <h3>Mon premier projet</h3>
-                <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In schola desinis.<strong>Duo Reges: constructio interrete.</strong> <em>Quonam, inquit, modo?</em> Quod non faceret, si in voluptate summum bonum poneret. <em>Numquam facies.</em> Quod autem in homine praestantissimum atque optimum est, id deseruit.</p>
-                </div>
-            </div>
-            <div class="box span6">
-                <h3>Mon premier projet</h3>
-                <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In schola desinis.<strong>Duo Reges: constructio interrete.</strong> <em>Quonam, inquit, modo?</em> Quod non faceret, si in voluptate summum bonum poneret. <em>Numquam facies.</em> Quod autem in homine praestantissimum atque optimum est, id deseruit.</p>
-                </div>
-            </div>
+<section id="projects">
+    <h2>Les projets</h2>
+
+    <article class="box block-even">
+        <img src="#" alt="#">
+        <div>
+            <h3>Open Data Map </h3> //
+            <p>Duis autre inrure color in reprehenderit in voluptate velit esse cillum eu fugiat nulla pariatur.</p>
         </div>
-        <div class="row-fluid">
-            <div class="box span6">
-                <h3>Mon premier projet</h3>
-                <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In schola desinis.<strong>Duo Reges: constructio interrete.</strong> <em>Quonam, inquit, modo?</em> Quod non faceret, si in voluptate summum bonum poneret. <em>Numquam facies.</em> Quod autem in homine praestantissimum atque optimum est, id deseruit.</p>
-                </div>
-            </div>
-            <div class="box span6">
-                <h3>Mon premier projet</h3>
-                <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In schola desinis.<strong>Duo Reges: constructio interrete.</strong> <em>Quonam, inquit, modo?</em> Quod non faceret, si in voluptate summum bonum poneret. <em>Numquam facies.</em> Quod autem in homine praestantissimum atque optimum est, id deseruit.</p>
-                </div>
-            </div>
+        <a href="#" alt="Accéder au site !">
+            Accéder au site !
+        </a>
+    </article>
+
+    <article class="box block-odd">
+        <img src="#" alt="#">
+        <div>
+            <h3>Open Data Map </h3> //
+            <p>Duis autre inrure color in reprehenderit in voluptate velit esse cillum eu fugiat nulla pariatur.</p>
         </div>
-    #{/cms.display}
-    </div>
+        <a href="#" alt="Accéder au site !">
+            Accéder au site !
+        </a>
+    </article>
+
+    <article class="box block-even">
+        <img src="#" alt="#">
+        <div>
+            <h3>Open Data Map </h3> //
+            <p>Duis autre inrure color in reprehenderit in voluptate velit esse cillum eu fugiat nulla pariatur.</p>
+        </div>
+        <a href="#" alt="Accéder au site !">
+            Accéder au site !
+        </a>
+    </article>
+
+    <article class="box block-odd">
+        <img src="#" alt="#">
+        <div>
+            <h3>Open Data Map </h3> //
+            <p>Duis autre inrure color in reprehenderit in voluptate velit esse cillum eu fugiat nulla pariatur.</p>
+        </div>
+        <a href="#" alt="Accéder au site !">
+            Accéder au site !
+        </a>
+    </article>
+
 </section>
 
-<section id="resources" class="block">
-    <div class="container">
-        #{cms.display 'projects'}
-            <div class="row-fluid">
-                <div class="span12">
+<section id="resources">
+    <h2>Nos ressources</h2>
 
-                </div>
-            </div>
-        #{/cms.display}
+    <div class="block-even">
+        <i class="icon-dropbox"></i>
+        <h3>études</h3>
+        <a href="#" title="Nos études"></a>
+    </div>
+
+    <div class="block-odd">
+        <i class="icon-dropbox"></i>
+        <h3>Document</h3>
+        <a href="#" title="Nos documents"></a>
+    </div>
+
+    <div class="block-even">
+        <i class="icon-dropbox"></i>
+        <h3>Vidéos</h3>
+        <a href="#" title="Nos vidéos"></a>
+    </div>
+
+    <div class="block-odd">
+        <i class="icon-dropbox"></i>
+        <h3>Photos</h3>
+        <a href="#" title="Nos Photos"></a>
+    </div>
+
+    <div class="block-even">
+        <i class="icon-dropbox"></i>
+        <h3>Code</h3>
+        <a href="#" title="Codes"></a>
     </div>
 </section>

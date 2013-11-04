@@ -20,86 +20,98 @@
         <![endif]-->
     </head>
     <body class="#{get 'mainClass' /}" itemscope itemtype="http://schema.org/WebPage">
-        <!-- Navbar -->
-        <header class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
+
+        <!-- Main container -->
+        <section class="container">
+
+            <!-- header -->
+            <header>
+                <div id="base-line">
+                    <div>
+                        <p>Association ressource et expérimentale de projets numériques autour des données ouvertes et des pratiques collaboratives</p>
+                    </div>
+                </div>
+
+                <!-- Navgation bar -->
+                <div class="navbar row-fluid">
+
+                    <!-- Nav. -->
+                    <nav class="pull-left span9">
+                        <ul class="inline">
+                            <li>
+                                <a href="@{Application.blog()}" title="Le Blog">Le Blog</a>
+                            </li>
+                            <li>
+                                <a href="@{cms.Frontend.show('l-association')}" title="L'association">L'association</a>
+                            </li>
+                            <li>
+                                <a href="@{cms.Frontend.show('activites')}" title="Activités">Activités</a>
+                            </li>
+                            <li>
+                                <a href="@{Contact.index()}" title="Nous contacter">Nous contacter</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <!-- Search -->
+                    <div class="span3">
+                        <form accept-charset="utf-8" method="get" action="@{Application.search()}" id="search">
+                            <label for="search-query">Recherche</label>
+                            <div class="input-append pull-right">
+                                <input id="search-query" type="text" value="" name="search" class="input-medium search-query" placeholder="Search">
+                                <button type="submit" class="btn"><i class="icon-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Nav. resp. -->
                     <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="brand" href="@{Application.index()}" title="LiberTIC">
-                        LiberTIC
-                    </a>
-                    <nav class="nav-collapse collapse">
-                        <ul class="nav">
-                            <li>
-                                <a href="@{Application.blog()}" title="Le Blog">Blog</a>
-                            </li>
-                            <li>
-                                <a href="@{Contact.index()}" title="Contactez nous!">Contact nous</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="form-search pull-right">
-                        <form enctype="application/x-www-form-urlencoded" accept-charset="utf-8" method="get" action="@{Application.search()}">
-                            <label for="search">Recherche</label>
-                            <div class="input-append">
-                                <input id="search" type="text" value="" name="search" class="input-large search-query" placeholder="Search">
-                                <button type="submit" class="btn"><i class="icon-search"></i></button>
-                            </div>
-                        </form>
-                    </div>
                 </div>
-            </div>
-        </header>
+            </header>
 
-        #{doLayout /}
+            #{doLayout /}
 
-        <footer id="footer">
-            <div class=" blockOdd">
-                <div class="container">
-                    <div class="row-fluid">
-                        <div class="span4">
-                            <ul class="pull-left inline">
-                                <li>
-                                    <a href="http://creativecommons.org/licenses/by-sa/3.0/" title="License Creative commons : BY-SA">
-                                        <img alt="CC-BY-SA" src="@{'/public/images/cc-by-sa.png'}" class="middle">
-                                    </a>
-                                </li>
-                                <li>|</li>
-                                <li id="mentions">
-                                    <a href="@{cms.Frontend.show('credits')}" title="crédits">
-                                        Crédits
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+            <!-- footer -->
+            <footer id="footer" class="row-fluid">
+                <ul class="pull-left inline">
+                    <li>
+                        <a href="http://creativecommons.org/licenses/by-sa/3.0/" title="License Creative commons : BY-SA">
+                            <img alt="CC-BY-SA" src="@{'/public/images/cc-by-sa.png'}" class="middle">
+                        </a>
+                    </li>
+                    <li>|</li>
+                    <li id="mentions">
+                        <a href="@{cms.Frontend.show('credits')}" title="crédits">
+                            Crédits
+                        </a>
+                    </li>
+                </ul>
 
-                        <div class="span8">
-                            <ul class="pull-right inline">
-                                <li>
-                                    <a href="@{Contact.index()}" title="Me contacter">
-                                        <i class="icon-envelope"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.twitter.com/libertic" title="Suivez-moi sur Twitter">
-                                        <i class="icon-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.github.com/libertic" title="Compte Github">
-                                        <i class="icon-github-alt"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+                <ul class="pull-right inline">
+                    <li>
+                        <a href="@{Contact.index()}" title="Me contacter">
+                            <i class="icon-envelope"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.twitter.com/libertic" title="Suivez-moi sur Twitter">
+                            <i class="icon-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.github.com/libertic" title="Compte Github">
+                            <i class="icon-github-alt"></i>
+                        </a>
+                    </li>
+                </ul>
+
+            </footer>
+
+        </section>
 
         #{cms.display 'trakers' } #{/cms.display}
 
