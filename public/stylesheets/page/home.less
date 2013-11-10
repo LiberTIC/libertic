@@ -52,7 +52,7 @@ body.home {
     article {
       width: calc(~"(100% - 20px - 30px) /2");
       float: left;
-      margin-bottom: 50px;
+      margin-bottom: 30px;
       padding: 5px 5px 10px 5px;
       position: relative;
 
@@ -90,12 +90,29 @@ body.home {
         font-style: italic;
       }
 
-      &.block-even {
+      &:nth-child(even)  {
         margin-right: 30px;
+      }
+
+      &:nth-child(4n)  {
+        background: @primary;
+      }
+      &:nth-child(4n + 1)  {
+        background: @secondary;
         color: @white;
         h3 {
           color: @white;
         }
+      }
+      &:nth-child(4n + 2)  {
+        background: @secondary;
+        color: @white;
+        h3 {
+          color: @white;
+        }
+      }
+      &:nth-child(4n + 3)  {
+        background: @primary;
       }
     }
   }
@@ -133,12 +150,14 @@ body.home {
         }
       }
 
-      &.block-even {
+      &:nth-child(odd) {
+        background: @secondary;
         i {
           color: @primary;
         }
       }
-      &.block-odd {
+      &:nth-child(even) {
+        background: @primary;
         i {
           color: @secondary;
         }
