@@ -3,6 +3,10 @@ html {
   height: 100%;
 }
 
+a {
+  color: @secondary;
+}
+
 body {
   background-color: @background;
   font-family: @ftPrimary;
@@ -28,7 +32,8 @@ body {
           p {
             display: block;
             text-align: justify;
-            width: 300px;
+            font-weight: bold;
+            width: 310px;
             margin-bottom: 35px;
           }
         }
@@ -42,13 +47,15 @@ body {
 
         // primary menu
         ul {
-          padding-left: 45px;
+          padding-left: 50px;
           li {
+            padding-left: 0;
+            padding-right: 50px;
             a {
               color: @black;
               text-transform: uppercase;
               font-weight: bold;
-              font-size: 1.2em;
+              font-size: 1.5em;
               line-height: 30px;
             }
           }
@@ -115,6 +122,19 @@ body {
         }
         li:first-child {
           margin-left: 0;
+        }
+
+        &.pull-right {
+          li {
+            vertical-align: middle;
+            a {
+              text-transform: uppercase;
+              font-weight: bold;
+              img {
+                display: block;
+              }
+            }
+          }
         }
       }
     }
