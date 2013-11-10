@@ -2,8 +2,8 @@
 
 .fontface(@fontname) {
   font-family: '@{fontname}';
-  src: url('@{fontsRoot}/@{fontname}.eot') format("opentype"),
-       url('@{fontsRoot}/@{fontname}.otf') format("opentype"),
+  src: url('@{fontsRoot}/@{fontname}.eot') format("eot"),
+       url('@{fontsRoot}/@{fontname}.woff') format("woff"),
        url('@{fontsRoot}/@{fontname}.ttf') format('truetype'),
        url('@{fontsRoot}/@{fontname}.svg#@{fontname}') format('svg');
   font-style: normal;
@@ -11,8 +11,5 @@
 }
 
 @font-face {
-  font-family: 'Futura';
-  src: url('@{fontsRoot}/Futura LT.ttf') format('truetype');
-  font-style: normal;
-  font-weight: normal;
+  .fontface('TrebuchetMS');
 }
