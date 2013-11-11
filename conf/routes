@@ -6,6 +6,7 @@ GET     /blog                                                  Application.blog
 GET     /search                                                Application.search
 GET     /sitemap.xml                                           Application.sitemap
 GET     /robots.txt                                            Application.robots
+GET     /import                                                Application.wpimport
 #
 # Contact
 #

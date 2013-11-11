@@ -5,6 +5,8 @@ import models.cms.CMSPage;
 import play.modules.search.Query;
 import play.modules.search.Search;
 import play.mvc.Http;
+import play.mvc.results.Ok;
+import service.WordPressImport;
 
 import java.util.List;
 
@@ -79,5 +81,10 @@ public class Application extends AbstractController {
     public static void robots(){
         response.contentType = "text/plain; charset=" + Http.Response.current().encoding;
         render("Application/robots.html");
+    }
+
+    public static void wpimport() throws Exception {
+        int nbImported = WordPressImport.importXML();
+        renderText("Imported article : " + nbImported);
     }
 }
