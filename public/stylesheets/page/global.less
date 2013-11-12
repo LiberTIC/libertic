@@ -22,6 +22,19 @@ body {
 
       #base-line {
         height: 219px;
+        position: relative;
+
+        #home-link {
+          span {
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+          }
+        }
+
         div {
           width: 375px;
           min-height: 94px;
@@ -95,7 +108,7 @@ body {
       padding: 0 50px;
       width: calc(~"100% - 100px");
       padding-bottom: 60px;
-      &:after{
+      &:after {
         clear: both;
       }
     }
