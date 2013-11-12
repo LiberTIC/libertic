@@ -81,7 +81,7 @@ securesocial.cancel               = Annuler
 securesocial.passwordsMustMatch   = Les passwords ne correspondent pas
 securesocial.userNameTaken        = Ce login est déjà pris
 securesocial.activationTitle      = Bienvenue %s
-securesocial.activationSuccess    = Merci, votre compte vient d'être activé. CLiquez <a href="%s">ici</a> pour vous authentifier.
+securesocial.activationSuccess    = Merci, votre compte vient d'être activé. Cliquez <a href="%s">ici</a> pour vous authentifier.
 securesocial.activateTitle        = Activation du compte
 securesocial.errorCreatingAccount = Une erreur est survenue lors de la création de votre compte.
 securesocial.accountNotActive     = Votre compte n'est pas activé. Si vous pensez que ceci est une erreur, veuillez contacter l'administrateur.

@@ -6,7 +6,7 @@
         <div class="alert block-message #{if flash.error}alert-error#{/if}#{else}alert-success#{/else}">
             <div class="alert-actions">
                 #{if flash.error}${flash.error}#{/if}
-                #{else}${flash.success.raw()}#{/else} 
+                #{else}${flash.success}#{/else}
             </div>
         </div>
     </div>
