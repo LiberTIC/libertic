@@ -38,7 +38,7 @@ public class Contact extends AbstractController {
     public static void captcha(String id) {
         Images.Captcha captcha = Images.captcha();
         // we set the text color of the captcha
-        String code = captcha.getText("#75C228");
+        String code = captcha.getText("#065381");
         // we set the life time of the captcha
         Cache.set(id, code, "30mn");
         renderBinary(captcha);
