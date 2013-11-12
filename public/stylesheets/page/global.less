@@ -103,7 +103,7 @@ body {
 
     }
 
-    section {
+    > section, main.mainContainer {
       display: table;
       padding: 0 50px;
       width: calc(~"100% - 100px");
@@ -111,6 +111,9 @@ body {
       &:after {
         clear: both;
       }
+    }
+    main.mainContainer {
+      margin-top: 20px;
     }
 
     footer#footer {
