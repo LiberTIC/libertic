@@ -1,13 +1,19 @@
 .admin {
   color: @black;
 
-  .blockDefault {
-    color: @black;
-
-    h1, h2, h3 {
-      color: @grey;
+  header.navbar {
+    div.container {
+      height: 50px;
+      .brand {
+        height: 100%;
+        padding: 0 20px;
+        img {
+          height: 100%;
+        }
+      }
     }
   }
+
 
   form.form-horizontal .controls input, form.form-horizontal .controls textarea, form.form-horizontal .controls select {
      width: 95%;
@@ -101,7 +107,7 @@
     font-weight: bold;
 
     &:hover {
-      background-color: @secondary;
+      background-color: @primary;
     }
   }
 
@@ -114,7 +120,7 @@
   }
 
   .bs-docs-sidenav > li > a:hover {
-    background-color: @secondary;
+    background-color: @primary;
   }
 
   .bs-docs-sidenav a:hover .icon-chevron-right {
