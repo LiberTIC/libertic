@@ -2,97 +2,111 @@
 // Responsive: Landscape phone to desktop/tablet
 // --------------------------------------------------
 @media (max-width: 480px) {
-  .navbar {
-    .btn-navbar {
-      margin-right: 20px;
-    }
-    .form-search {
-      position: absolute;
-      top: 0;
-      right: 80px;
-      width: 40%;
-    }
-  }
 
-  footer {
-    .row-fluid {
-      .span4 {
-        display: none;
-      }
-      .span8 {
-        text-align: center;
-        width: 100%;
-        ul {
-          float: none;
+  body {
+    padding: 0px;
+
+    section.container {
+      > header {
+        background: none;
+        height: 40px;
+
+        #base-line {
+          display: none;
+          height: 0;
         }
-      }
-    }
-  }
 
-  body.home {
+        .navbar {
+          background: url("/public/images/header.png") no-repeat scroll center top #FFFFFF;
+          padding-top: 0px;
 
-    #valeurs {
-      margin: 0 !important;
-      li {
-        width: 100%;
-        float: left;
-        margin-bottom: 50px;
-        a {
-          width: 100%;
-        }
-      }
-    }
-
-    #follow {
-      .container {
-        .row-fluid {
-          .span6 {
-            &:first-child {
-              display: none;
-            }
+          nav.nav-collapse {
+            top: 40px;
+            height: 0;
+            position: absolute;
+            min-height: inherit;
 
             ul {
+              overflow: hidden;
+              padding-left: 0px;
               li {
-                margin: 10px;
+                display:block;
+                padding: 0;
+                a {
+                  display:block;
+                  text-align: center;
+                }
               }
             }
           }
+
+          div.span3 {
+            float: left;
+            width: 80%;
+            margin-top: 5px;
+
+            #search-query {
+              max-width: 80%;
+            }
+          }
+
+          button.btn-navbar {
+            float: right;
+            margin-bottom: 5px;
+            .buttonBackground(@secondary, darken(@secondary, 10%));
+          }
         }
       }
-    }
-  }
 
-  body.page {
-    #my-card {
-      text-align: center;
-      > .span8 {
+      > section {
+        padding: 0 10px 60px;
+        width: calc(~"100% - 20px");
+      }
+    }
+
+    footer {
+      overflow: hidden;
+
+      ul.pull-left {
         margin: 0 auto;
-        width: auto;
-      }
-      .span8 .row-fluid .span4 {
         width: 100%;
+        padding-left: 0 !important;
+        li {
+          float: left;
+          width: 25%;
+          margin: 0 !important;
+          padding: 0 !important;
+          a {
+            font-size: 30px;
+            display: block;
+            width : 30px;
+            margin: 0 auto;
+          }
+        }
       }
-      .span8 .row-fluid .span8 {
-        width: 100%;
+
+      ul.pull-right {
+        display: none;
+      }
+
+    }
+  }
+  
+  body.home {
+    #projects {
+      article.box {
+        width: calc(~"100% - 10px");
       }
     }
-
-    section.cv > div {
-      padding:0 10px;
-    }
-
-    nav.blog {
-      li {
-        width: 100%;
-        a {
-          display: block;
+    #resources {
+      div {
+        > div {
+          width: 98%;
+          margin-left: 0;
+          margin-bottom: 15px;
         }
       }
     }
-  }
-
-  .mainContainer {
-    margin: 0 10px;
   }
 
   form.form-horizontal {
