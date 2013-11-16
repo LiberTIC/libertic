@@ -33,7 +33,9 @@
                         <span></span>
                     </a>
                     <div>
-                        <p>Association ressource et expérimentale de projets numériques autour des données ouvertes et des pratiques collaboratives</p>
+                        #{cms.display 'header'}
+                            <p>Association ressource et expérimentale de projets numériques autour des données ouvertes et des pratiques collaboratives</p>
+                        #{/cms.display}
                     </div>
                 </div>
 
@@ -82,50 +84,55 @@
 
             <!-- footer -->
             <footer id="footer" class="row-fluid">
-                <ul class="pull-left inline">
-                    <li>
-                        <a href="#" title="Newsletter">
-                            <i class="icon-envelope"></i>
-                            Newsletter
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" title="COmpte Identi.ca de LiberTIC">
-                            <i class="icon-twitter"></i>
-                            Identi.ca
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.twitter.com/libertic" title="Compte Twitter de LiberTIC">
-                            <i class="icon-twitter"></i>
-                            Twitter
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" title="Flux RSS du blog de LiberTIC">
-                            <i class="icon-rss"></i>
-                            Flux RSS
-                        </a>
-                    </li>
-                </ul>
 
-                <ul class="pull-right inline">
-                    <li>
-                        <a href="@{cms.Frontend.show('nos-partenaires')}" title="Nos partenaires">
-                            Partenaires
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@{cms.Frontend.show('espace-presse')}" title="Espace presse">
-                            Espace presse
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://creativecommons.org/licenses/by-sa/3.0/" title="Creative commons NY SA">
-                            <img src="@{'public/images/cc-by-sa.png'}" alt="CC BY SA" />
-                        </a>
-                    </li>
-                </ul>
+                #{cms.display 'footer' }
+
+                    <ul class="pull-left inline">
+                        <li>
+                            <a href="#" title="Newsletter">
+                                <i class="icon-envelope"></i>
+                                Newsletter
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="COmpte Identi.ca de LiberTIC">
+                                <i class="icon-twitter"></i>
+                                Identi.ca
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.twitter.com/libertic" title="Compte Twitter de LiberTIC">
+                                <i class="icon-twitter"></i>
+                                Twitter
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="Flux RSS du blog de LiberTIC">
+                                <i class="icon-rss"></i>
+                                Flux RSS
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="pull-right inline">
+                        <li>
+                            <a href="@{cms.Frontend.show('nos-partenaires')}" title="Nos partenaires">
+                                Partenaires
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@{cms.Frontend.show('espace-presse')}" title="Espace presse">
+                                Espace presse
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://creativecommons.org/licenses/by-sa/3.0/" title="Creative commons NY SA">
+                                <img src="@{'public/images/cc-by-sa.png'}" alt="CC BY SA" />
+                            </a>
+                        </li>
+                    </ul>
+
+                #{/cms.display}
 
             </footer>
 

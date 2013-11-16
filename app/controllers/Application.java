@@ -5,7 +5,6 @@ import models.cms.CMSPage;
 import play.modules.search.Query;
 import play.modules.search.Search;
 import play.mvc.Http;
-import play.mvc.results.Ok;
 import service.WordPressImport;
 
 import java.util.List;
@@ -23,8 +22,9 @@ public class Application extends AbstractController {
      * Home page.
      */
     public static void index() {
-        List<CMSPage> blogs = CMSPage.getLastests("blog",Boolean.TRUE, 3);
-        render(blogs);
+        List<CMSPage> blogs = CMSPage.getLastests("blog", Boolean.TRUE, 1);
+        List<CMSPage> projects = CMSPage.getAllByTemplate("projet", Boolean.TRUE);
+        render(blogs, projects);
     }
 
     /**
@@ -44,13 +44,13 @@ public class Application extends AbstractController {
         }
         // default search
         String query = search;
-        if(search == null || search.trim().length() == 0) {
+        if (search == null || search.trim().length() == 0) {
             query = "*:*";
         }
 
         query += " AND (template:'blog' OR template:'page')";
         Query q = Search.search(query, CMSPage.class);
-        List<CMSPage> pages = q.page((page-1) * ITEM_PER_PAGE, ITEM_PER_PAGE).fetch();
+        List<CMSPage> pages = q.page((page - 1) * ITEM_PER_PAGE, ITEM_PER_PAGE).fetch();
         Integer nbItems = q.count();
 
         render(search, page, pages, nbItems);
@@ -59,7 +59,7 @@ public class Application extends AbstractController {
     /**
      * Admin page.
      */
-    public static void admin(){
+    public static void admin() {
         // check if it's an admin user
         isAdminUser();
 
@@ -69,7 +69,7 @@ public class Application extends AbstractController {
     /**
      * Sitemap.xml
      */
-    public static void sitemap(){
+    public static void sitemap() {
         List<CMSPage> pages = CMSPage.all().fetch();
         response.contentType = "application/xml";
         render(pages);
@@ -78,13 +78,22 @@ public class Application extends AbstractController {
     /**
      * Robots.txt
      */
-    public static void robots(){
+    public static void robots() {
         response.contentType = "text/plain; charset=" + Http.Response.current().encoding;
         render("Application/robots.html");
     }
 
+    /**
+     * Import blog's article from wordpress export.
+     *
+     * @throws Exception
+     */
     public static void wpimport() throws Exception {
-        int nbImported = WordPressImport.importXML();
-        renderText("Imported article : " + nbImported);
+        if (hasAdminRight() && CMSPage.getAllByTemplate("blog", false).size() == 0) {
+            int nbImported = WordPressImport.importXML();
+            renderText("Imported article : " + nbImported);
+        } else {
+            forbidden();
+        }
     }
 }
