@@ -16,6 +16,16 @@ POST    /contact                                               Contact.send
 GET     /contact/captcha                                       Contact.captcha
 
 #
+# Newsletter
+#
+GET     /newsletter                                            NewsLetter.register
+POST    /newsletter                                            NewsLetter.registerSave
+GET     /newsletter/unregister                                 NewsLetter.unregister
+POST    /newsletter/unregister                                 NewsLetter.unregisterSave
+GET     /admin/newsletter                                      NewsLetter.admin
+GET     /admin/newsletter/delete                               NewsLetter.delete
+
+#
 # Admin route
 #
 GET     /admin                                                 Application.admin

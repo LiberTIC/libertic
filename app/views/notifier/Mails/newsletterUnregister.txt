@@ -1,0 +1,9 @@
+Bonjour,
+
+Vous venez de vous désinscrire à la newsletter du site @@{Application.index}.
+
+Nous espérons vous revoir bientôt.
+
+A bientôt.
+--
+LiberTIC

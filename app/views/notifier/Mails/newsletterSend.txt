@@ -1,0 +1,12 @@
+Bonjour,
+
+Il y a du nouveau sur le site de LiberTIC :
+#{list items:posts, as:'post'}
+  * ${post.title} (@@{cms.Frontend.show(post.name)}) #{if post.description}${post.description}#{/if}
+#{/list}
+
+A bientôt
+--
+LiberTIC
+
+PS: Si vous souhaitez vous désinscrire, veuillez suivre le lien suivant : @@{NewsLetter.unregister()}?email=${email}

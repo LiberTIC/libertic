@@ -30,6 +30,17 @@ page.contact.security.help         = Veuillez saisir le code se sécurité (capt
 page.contact.send                  = Envoyer
 
 #
+# Newsletter
+#
+page.newsletter.register.title        = S'inscrire à la newsletter
+page.newsletter.email                 = Votre email
+page.newsletter.email.placeholder     = martin.dupond@yopmail.com
+page.newsletter.cgu                   = Ces informations seront utilisées uniquement pour l'envoie de la newsletter. Acceptez-vous les <a href="/cgu" title="Conditions Générales d'utilisation">conditions d'utilisation</a> ?
+page.newsletter.register              = S'inscrire
+page.newsletter.unregister            = Se désinscrire
+page.newsletter.unregister.title      = Se désinscrire à la newsletter
+
+#
 # Page user
 #
 page.user                  = Votre compte

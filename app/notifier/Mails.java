@@ -17,6 +17,7 @@
 package notifier;
 
 import models.User;
+import models.cms.CMSPage;
 import play.Logger;
 import play.Play;
 import play.mvc.Mailer;
@@ -53,6 +54,39 @@ public class Mails extends Mailer {
             }
         }
         send(author, message, email);
+    }
+
+    /**
+     * Mail to informed the inscription to the newsletter.
+     */
+    public static void newsletterRegister(String email){
+        setSubject("[" + Play.configuration.getProperty("application.name").toUpperCase() + " - Newsletter] Votre inscription à la newsletter");
+        setFrom(Play.configuration.getProperty("application.mail.noreply"));
+        setReplyTo(Play.configuration.getProperty("application.mail.noreply"));
+        addRecipient(email);
+        send(email);
+    }
+
+    /**
+     * Mail to informed the desinscription to the newsletter.
+     */
+    public static void newsletterUnregister(String email){
+        setSubject("[" + Play.configuration.getProperty("application.name").toUpperCase() + " - Newsletter] Votre désinscription à la newsletter");
+        setFrom(Play.configuration.getProperty("application.mail.noreply"));
+        setReplyTo(Play.configuration.getProperty("application.mail.noreply"));
+        addRecipient(email);
+        send(email);
+    }
+
+    /**
+     * Mail to send the newsletter.
+     */
+    public static void newsletterSend(List<CMSPage> posts, String email){
+        setSubject("[" + Play.configuration.getProperty("application.name").toUpperCase() + " - Newsletter]: " + posts.size() + " nouveau(x) blog(s)" );
+        setFrom(Play.configuration.getProperty("application.mail.noreply"));
+        setReplyTo(Play.configuration.getProperty("application.mail.noreply"));
+        addRecipient(email);
+        send(email, posts);
     }
 
 

@@ -1,0 +1,9 @@
+Bonjour,
+
+Vous venez de vous inscrire à la newsletter du site @@{Application.index}, et nous vous en remercions.
+
+A bientôt
+--
+LiberTIC
+
+PS: Si vous souhaitez vous désinscrire, veuillez suivre le lien suivant : @@{NewsLetter.unregister()}?email=${email}

@@ -1,0 +1,47 @@
+#{extends 'page.html' /}
+#{set title: messages.get('page.newsletter.unregister.title') /}
+
+<div class="row">
+    <div class="span12">
+
+        <h1>&{'page.newsletter.unregister.title'}</h1>
+
+    #{cms.display 'newsletter_unregister'}
+        <p>Vous pouvez vous desinscrire de notre newsletter en remplissant le formulaire ci-dessous :</p>
+    #{/cms.display}
+
+    #{form @NewsLetter.unregisterSave(), class:"form-horizontal contact", method:'POST'}
+
+        #{ifErrors}
+            <div class="alert alert-error">
+                &{'error.checkform'}
+            </div>
+        #{/ifErrors}
+        #{if flash.success}
+            <div class="alert alert-success">
+                ${flash.success}
+            </div>
+        #{/if}
+
+        <fieldset class="blockLight">
+            <div class="control-group #{ifError 'email'}error#{/ifError}">
+                <label class="control-label" for="email">
+                    &{'page.newsletter.email'}<span class="required">*</span>
+                </label>
+                <div class="controls">
+                    <input type="email" name="email" id="email" value="#{if flash['email']}${flash['email']}#{/if}#{else}${params.email}#{/else}" placeholder="&{'page.newsletter.email.placeholder'}" />
+                    #{if errors.forKey('email')}
+                        <span class="help-inline">#{error 'email' /}</span>
+                    #{/if}
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button class="btn btn-primary pull-right" type="submit">&{'page.newsletter.unregister'}</button>
+            </div>
+
+        </fieldset>
+    #{/form}
+
+    </div>
+</div>

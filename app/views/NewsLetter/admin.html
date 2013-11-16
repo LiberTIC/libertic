@@ -1,0 +1,26 @@
+#{extends 'admin.html' /}
+
+<h1>Les inscrits à la newsletter</h1>
+
+<table class="table table-hover table-striped sortable">
+    <caption>
+        ${members?.size()} inscrit(s).
+    </caption>
+    <thead>
+    <tr>
+        <th class="span1" data-defaultsort="asc">Email</th>
+    </tr>
+    </thead>
+    <tbody>
+        #{list items:members, as:'member' }
+            <tr>
+                <td>${member.email}</td>
+                <td>
+                    <a class="btn btn-danger pull-right" href="@{NewsLetter.delete()}?email=${member.email}" title="Delete">
+                        <i class="icon-remove"></i>
+                    </a>
+                </td>
+            </tr>
+        #{/list}
+    </tbody>
+</table>
