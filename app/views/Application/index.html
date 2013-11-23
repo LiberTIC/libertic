@@ -9,40 +9,42 @@
 <section id="actu" class="row-fluid">
     <h2>Actualité</h2>
 
-        <div class="row-fluid">
-            <div class="span9">
-                #{list items:blogs, as:'blog' }
-                    <article class="row-fluid"  itemscope itemtype="http://schema.org/BlogPosting">
-                        <h3 itemprop="name">
-                            <a href="@@{cms.Frontend.show(blog.name)}" title="${blog.title}">${blog.title}</a>
-                        </h3>
-                        <div class="metadata">
-                            Crée le <time itemprop="dateCreated" datetime="${blog.created.format("yyyy-MM-dd")}2013-10-09">${blog.created.format("dd.MM.yyyy")}</time> par <a itemprop="author" href="@@{Application.index()}" title="LiberTIC" rel="author">LiberTIC</a>
+    <div class="row-fluid">
+        <div class="span9">
+            #{list items:blogs, as:'blog' }
+                <article class="row-fluid"  itemscope itemtype="http://schema.org/BlogPosting">
+                    <h3 itemprop="name">
+                        <a href="@@{cms.Frontend.show(blog.name)}" title="${blog.title}">${blog.title}</a>
+                    </h3>
+                    <div class="metadata">
+                        Crée le <time itemprop="dateCreated" datetime="${blog.created.format("yyyy-MM-dd")}2013-10-09">${blog.created.format("dd.MM.yyyy")}</time> par <a itemprop="author" href="@@{Application.index()}" title="LiberTIC" rel="author">LiberTIC</a>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span3">
+                            #{if blog.image}
+                                <img itemprop="image" src="@{cms.Frontend.image()}?name=${blog.image.name}" alt="">
+                            #{/if}
                         </div>
-                        <div class="row-fluid">
-                            <div class="span3">
-                                <img itemprop="image" src="http://lorempixel.com/50/50/" alt="">
-                            </div>
-                            <div class="span9" >
-                                <p itemprop="description">
-                                   ${blog.description}
-                                </p>
-                                <a itemprop="url" href="@@{cms.Frontend.show(blog.name)}" title="Lire la suite">[ Lire la suite + ]</a>
-                            </div>
+                        <div class="span9" >
+                            <p itemprop="description">
+                               ${blog.description}
+                            </p>
+                            <a itemprop="url" href="@@{cms.Frontend.show(blog.name)}" title="Lire la suite">[ Lire la suite + ]</a>
                         </div>
-                    </article>
-                #{/list}
-            </div>
-
-            <div class="span3">
-                <div>
-                    <a href="#" title="">
-                        Découvrez plus d'actus de LiberTIC sur notre blog !
-                    </a>
-                </div>
-            </div>
-
+                    </div>
+                </article>
+            #{/list}
         </div>
+
+        <div class="span3">
+            <div>
+                <a href="#" title="">
+                    Découvrez plus d'actus de LiberTIC sur notre blog !
+                </a>
+            </div>
+        </div>
+
+    </div>
 </section>
 
 <section id="projects">

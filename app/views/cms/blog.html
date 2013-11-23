@@ -14,6 +14,9 @@
             <h1 itemprop="name">${page.title}</h1>
             <meta itemprop="description" content="${page.description}">
         </header>
+        #{if page.image}
+            <img itemprop="image" src="@{cms.Frontend.image()}?name=${page.image.name}" alt=""/>
+        #{/if}
         <section itemprop="articleBody" id="${page.name}" #{if controllers.Security.check("admin") }contenteditable="true"#{/if}>
             ${page.body.raw()}
         </section>

@@ -33,13 +33,13 @@ GET     /admin                                                 Application.admin
 #
 # Modules routes
 #
+*       /                                                      module:cms
 *       /auth                                                  module:securesocial
 GET     /user/{<[0-9]+>userId}                                 User.view
 GET     /user/me                                               User.myProfile
 GET     /user/me/edit                                          User.edit
 GET     /user/save                                             User.save
 *       /                                                      module:search
-*       /                                                      module:cms
 
 #
 # Ignore favicon requests
