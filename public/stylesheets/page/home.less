@@ -37,6 +37,17 @@ body.home {
             font-style: italic;
             padding-top: 50px;
             display: block;
+
+            &:hover {
+              text-decoration: none;
+            }
+          }
+
+          &:hover {
+            background-color: @primary;
+            a {
+              color: @black;
+            }
           }
         }
       }
@@ -114,6 +125,17 @@ body.home {
       &:nth-child(4n + 3)  {
         background: @primary;
       }
+
+      &:hover {
+        transition: background-color 1s;
+        background-color: @black;
+        div {
+          h3, p {
+            transition: color 1s;
+            color: @white;
+          }
+        }
+      }
     }
   }
 
@@ -148,6 +170,7 @@ body.home {
           left: 0;
           z-index: 1;
         }
+
       }
 
       &:nth-child(odd) {
@@ -160,6 +183,15 @@ body.home {
         background: @primary;
         i {
           color: @secondary;
+        }
+      }
+
+      &:hover {
+        transition: background-color 1s;
+        background-color: @black;
+        i {
+          transition: color 1s;
+          color: @white;
         }
       }
     }
