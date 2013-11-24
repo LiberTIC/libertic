@@ -27,13 +27,12 @@
                 <ul>
                     *{ Previous link }*
                     #{if page > 1}
-                        <li><a href="@{Application.search(query, page -1)}">&lt;</a></li>
+                        <li><a href="@{Application.search(search, page -1)}">&lt;</a></li>
                     #{/if}
 
                     #{if (page-2) > 0}
                         #{if (page+2) <= (nbItems / controllers.Application.ITEM_PER_PAGE)}
                             *{ Standard }*
-                            Standard
                             %{for (int i=(page-2); i <= page+2; i++){}%
                                 <li><a#{if i==page} class="current"#{/if} href="@{Application.search(search, i)}"
                                       title="Page n° ${i}">${i}</a></li>
