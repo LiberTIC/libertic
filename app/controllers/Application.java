@@ -1,6 +1,7 @@
 package controllers;
 
 import controllers.cms.Admin;
+import models.Project;
 import models.cms.CMSPage;
 import play.modules.search.Query;
 import play.modules.search.Search;
@@ -21,7 +22,7 @@ public class Application extends AbstractController {
      */
     public static void index() {
         List<CMSPage> blogs = CMSPage.getLastests("blog", Boolean.TRUE, 1);
-        List<CMSPage> projects = CMSPage.getAllByTemplate("projet", Boolean.TRUE);
+        List<Project> projects = Project.findAll();
         render(blogs, projects);
     }
 

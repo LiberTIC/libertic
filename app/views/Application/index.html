@@ -53,12 +53,12 @@
 
     #{list items:projects, as:'project' }
         <article class="box" itemscope itemtype="http://schema.org/CreativeWork">
-            <img itemprop="image" src="http://lorempixel.com/400/200/" alt="#" />
+            <img itemprop="image" src="@@{cms.Frontend.image()}?name=${project.image?.name}" alt="${project.name}" />
             <div>
-                <h3 itemprop="name">Open Data Map </h3> //
-                <p itemprop="description">Duis autre inrure color in reprehenderit in voluptate velit esse cillum eu fugiat nulla pariatur.</p>
+                <h3 itemprop="name">${project.name}</h3> //
+                <p itemprop="description">${project.description}</p>
             </div>
-            <a itemprop="url" href="#" alt="Accéder au site !">
+            <a itemprop="url" href="${project.url}" alt="Accéder au site !">
                 Accéder au site !
             </a>
         </article>

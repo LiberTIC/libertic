@@ -26,6 +26,15 @@ GET     /admin/newsletter                                      NewsLetter.admin
 GET     /admin/newsletter/delete                               NewsLetter.delete
 
 #
+# Project
+#
+GET     /admin/projects                                        Projects.index
+GET     /admin/project                                         Projects.add
+POST    /admin/project                                         Projects.save
+GET     /admin/project/{id}                                    Projects.edit
+GET     /admin/project/delete/{id}                             Projects.delete
+
+#
 # Admin route
 #
 GET     /admin                                                 Application.admin
