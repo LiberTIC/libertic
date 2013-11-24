@@ -1,0 +1,34 @@
+#{extends 'Projects/layout.html' /}
+
+<h1>&{'cms.title', 'Project'}</h1>
+
+<table class="table table-hover table-striped sortable">
+    <caption>
+    &{'cms.caption', projects.size(), 'projet'}
+    </caption>
+    <thead>
+    <tr>
+        <th class="span3" data-defaultsort="asc">&{'cms.page.title'}</th>
+        <th class="span3">&{'cms.page.description'}</th>
+        <th class="span2">&{'cms.action'}</th>
+    </tr>
+    </thead>
+    <tbody>
+    #{list items:projects, as:'project' }
+    <tr>
+        <td>${project.name}</td>
+        <td>${project.description}</td>
+        <td>
+            <a class="btn btn-danger pull-right" href="@{Projects.delete(project.id)}" title="&{'cms.page.delete'}">
+                <i class="icon-remove"></i>
+            </a>
+            <a class="btn btn-warning pull-right" href="@{Projects.edit(project.id)}" title="&{'cms.page.edit'}">
+                <i class="icon-pencil"></i>
+            </a>
+        </td>
+    </tr>
+    #{/list}
+    </tbody>
+</table>
+
+<a class="btn btn-success pull-right" href="@{Projects.add()}">&{'cms.page.new', 'project'}</a>

@@ -1,0 +1,133 @@
+#{extends 'Projects/layout.html' /}
+
+#{if project.name != null && project.name != ""}
+    <h1>&{'cms.edit.title', project.name}</h1>
+#{/if}
+#{else}
+    <h1>&{'cms.new.title', 'projet'}</h1>
+#{/else}
+
+#{form @Projects.save(), class:"form-horizontal", id:"form", method:"POST"}
+
+    #{ifErrors}
+        <div class="alert alert-error">
+            <strong>&{'error'}</strong> &{'error.checkform'}
+        </div>
+    #{/ifErrors}
+    #{if flash.success}
+        <div class="alert alert-success">
+            ${flash.success}
+        </div>
+    #{/if}
+
+    <!-- Field name -->
+    <div class="control-group #{ifError 'project.name'}error#{/ifError}">
+        <label class="control-label" for="name">
+            Nom du projet
+        </label>
+        <div class="controls">
+            <input class="span12" type="text" id="name" name="project.name" placeholder="Open Data Map" value="${project?.name}"/>
+            #{if errors?.forKey('project.name')}
+                <span class="help-inline">#{error 'project.name' /}</span>
+            #{/if}
+        </div>
+    </div>
+
+    <!-- Field url -->
+    <div class="control-group #{ifError 'project.url'}error#{/ifError}">
+        <label class="control-label" for="url">
+            Url du projet
+        </label>
+        <div class="controls">
+            <input class="span12" type="text" id="url" name="project.url" placeholder="http://www.opendata-map.org" value="${project?.url}"/>
+            #{if errors?.forKey('project.url')}
+                <span class="help-inline">#{error 'project.url' /}</span>
+            #{/if}
+        </div>
+    </div>
+
+    <!-- Field image -->
+    <div class="control-group #{ifError 'project.image'}error#{/ifError}">
+        <label class="control-label" for="image">
+            Visuel
+        </label>
+        <div class="controls">
+            <button type="button" class="btn btn-primary" onclick="BrowseServer('image');">&{'cms.page.image.parcourir'}</button>
+            <button type="button" class="btn btn-danger" onclick="document.getElementById('image').src = '#';document.getElementById('imageId').value = '';">&{'cms.page.image.reset'}</button>
+            <br/>
+            <img id="image" src="@{cms.Frontend.image()}?name=${project.image?.name}"/>
+            <input id="imageId" type="hidden" name="imageId" value="" />
+            #{if errors?.forKey('page.image')}
+                <span class="help-inline">#{error 'imageId' /}</span>
+            #{/if}
+        </div>
+    </div>
+
+    <!-- Field description -->
+    <div class="control-group #{ifError 'project.description'}error#{/ifError}">
+        <label class="control-label" for="description">
+            Description
+        </label>
+        <div class="controls">
+            <textarea id="description" name="project.description" class="span12" rows="3">${project?.description}</textarea>
+            #{if errors?.forKey('project.description')}
+                <span class="help-inline">#{error 'project.description' /}</span>
+            #{/if}
+        </div>
+    </div>
+
+    <!-- Form button -->
+    <div class="form-actions">
+        <button class="btn btn-primary" type="submit">&{'cms.page.save'}</button>
+        <button class="btn btn-danger" name="delete" value="delete" type="submit">&{'cms.page.delete'}</button>
+    </div>
+#{/form}
+
+<script type="text/javascript" src="/public/ckeditor/ckeditor.js" ></script >
+<script type="text/javascript" >
+    $(document).ready(function () {
+        $('.form-tooltip').tooltip();
+    });
+    CKEDITOR.on( 'instanceReady', function( ev ) {
+        ev.editor.dataProcessor.dataFilter.addRules( {
+            elements: {
+                img: function( el ) {
+                    el.attributes.itemscope = 'image';
+                }
+            }
+        } )
+    });
+</script>
+<script type="text/javascript">
+    // File Picker modification for FCK Editor v2.0 - www.fckeditor.net
+    // by: Pete Forde <pete@unspace.ca> @ Unspace Interactive
+    var urlobj;
+
+    function BrowseServer(obj)
+    {
+        urlobj = obj;
+        OpenServerBrowser(
+                '/public/Filemanager/index.html',
+                screen.width * 0.7,
+                screen.height * 0.7 ) ;
+    }
+
+    function OpenServerBrowser( url, width, height )
+    {
+        var iLeft = (screen.width - width) / 2 ;
+        var iTop = (screen.height - height) / 2 ;
+        var sOptions = "toolbar=no,status=no,resizable=yes,dependent=yes" ;
+        sOptions += ",width=" + width ;
+        sOptions += ",height=" + height ;
+        sOptions += ",left=" + iLeft ;
+        sOptions += ",top=" + iTop ;
+        var oWindow = window.open( url, "BrowseWindow", sOptions ) ;
+    }
+
+    function SetUrl( url, width, height, alt )
+    {
+        document.getElementById(urlobj).src = url ;
+        document.getElementById(urlobj + 'Id').value = url.replace('/image?name=', '');
+        oWindow = null;
+    }
+</script>

@@ -10,7 +10,7 @@ page.search.title  = Résultat de recherche pour "%s"
 #
 # page contact
 #
-page.contact.title                 = Me contacter
+page.contact.title                 = Contacter nous !
 page.contact.author                = Votre nom
 page.contact.author.placeholder    = Pierre Dupont
 page.contact.author.help           = Veuillez saisir votre nom et prénom
