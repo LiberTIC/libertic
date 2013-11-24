@@ -58,14 +58,14 @@
       }
 
       > section, main.mainContainer {
-        padding: 0 10px 60px;
-        width: auto;
+        padding: 0 10px 60px 10px;
+        width: calc(~"100% - 20px");
       }
     }
 
     footer {
       overflow: hidden;
-      height: 100px !important;
+      height: 60px !important;
 
       ul.pull-left {
         margin: 0 auto;
@@ -95,23 +95,32 @@
   body.home {
     #projects {
       article.box {
-        width: calc(~"100% - 10px");
+        width: 500px;
+        float: none;
+        margin: 30px auto;
       }
     }
     #resources {
       div {
         > div {
-          width: 98%;
-          margin-left: 0;
-          margin-bottom: 15px;
+          width: 50%;
+          float: none;
+          margin: 30px auto !important;
         }
       }
+    }
+  }
+
+  body.page{
+    footer {
+      height: 100px !important;
     }
   }
 
   form.form-horizontal {
     .control-label {
       width: 100%;
+      text-align: left;
     }
     .controls {
       width: 100%;
