@@ -4,19 +4,21 @@ body.search {
   }
 
   .resultItem {
-    margin-bottom: 40px;
-    a:hover {
+    margin-bottom: 30px;
+    padding: 5px;
+    a{
       text-decoration: none;
       h2 {
         color: @primary;
+        font-size: 24px;
       }
       div {
         color: @black;
       }
-    }
 
-    div {
-      color: @grey;
+    }
+    &:hover {
+      background-color: @greyLight;
     }
   }
 

@@ -15,8 +15,6 @@ import java.util.List;
 public class Application extends AbstractController {
 
     public final static int ITEM_PER_PAGE = 5;
-    public static final String MAP_RESULT_LIST = "result";
-    public static final String MAP_RESULT_NB = "nb";
 
     /**
      * Home page.
@@ -43,7 +41,8 @@ public class Application extends AbstractController {
             page = 1;
         }
         // default search
-        String query = search;
+        String query = "(title:" + search;
+        query += " ORD body:" + search + ")";
         if (search == null || search.trim().length() == 0) {
             query = "*:*";
         }

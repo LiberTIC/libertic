@@ -27,7 +27,8 @@
                         </div>
                         <div class="span9" >
                             <p itemprop="description">
-                               ${blog.description}
+                                #{if blog.description && blog.description.size() > 0}${blog.description.raw()}#{/if}
+                                #{else}${blog.body.truncateHtml(255)}...#{/else}
                             </p>
                             <a itemprop="url" href="@@{cms.Frontend.show(blog.name)}" title="Lire la suite">[ Lire la suite + ]</a>
                         </div>
@@ -38,7 +39,7 @@
 
         <div class="span3">
             <div>
-                <a href="#" title="">
+                <a href="@{Application.blog()}" title="Le blog">
                     Découvrez plus d'actus de LiberTIC sur notre blog !
                 </a>
             </div>

@@ -2,7 +2,7 @@
 #{set title:'Résultat de recherche' /}
 #{set mainClass:'search' /}
 
-<section class="row">
+<section class="row-fluid">
     <div class="span12">
 
         <h1 itemprop="name">&{'page.search.title', search}</h1>
@@ -14,9 +14,8 @@
                     <h2>${result.title}</h2>
                 </header>
                 <div>
-                    #{if result.description}
-                        ${result.description.raw()}
-                    #{/if}
+                    #{if result.description && result.description.size() > 0}${result.description.raw()}#{/if}
+                    #{else}${result.body.truncateHtml(255)}...#{/else}
                 </div>
             </a>
         </article>
