@@ -9,6 +9,10 @@
 
 #{form @Projects.save(), class:"form-horizontal", id:"form", method:"POST"}
 
+    #{if project.id}
+        <input type="hidden" name="project.id" value="${project.id}" />
+    #{/if}
+
     #{ifErrors}
         <div class="alert alert-error">
             <strong>&{'error'}</strong> &{'error.checkform'}
@@ -56,7 +60,7 @@
             <button type="button" class="btn btn-danger" onclick="document.getElementById('image').src = '#';document.getElementById('imageId').value = '';">&{'cms.page.image.reset'}</button>
             <br/>
             <img id="image" src="@{cms.Frontend.image()}?name=${project.image?.name}"/>
-            <input id="imageId" type="hidden" name="imageId" value="" />
+            <input id="imageId" type="hidden" name="imageId" value="${project.image?.name}" />
             #{if errors?.forKey('page.image')}
                 <span class="help-inline">#{error 'imageId' /}</span>
             #{/if}

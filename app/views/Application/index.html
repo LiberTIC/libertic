@@ -20,12 +20,15 @@
                         Crée le <time itemprop="dateCreated" datetime="${blog.created.format("yyyy-MM-dd")}2013-10-09">${blog.created.format("dd.MM.yyyy")}</time> par <a itemprop="author" href="@@{Application.index()}" title="LiberTIC" rel="author">LiberTIC</a>
                     </div>
                     <div class="row-fluid">
-                        <div class="span3">
-                            #{if blog.image}
+                        #{if blog.image}
+                            <div class="span3">
                                 <img itemprop="image" src="@{cms.Frontend.image()}?name=${blog.image.name}" alt="">
-                            #{/if}
-                        </div>
-                        <div class="span9" >
+                            </div>
+                            <div class="span9" >
+                        #{/if}
+                        #{else}
+                            <div class="span12" >
+                        #{/else}
                             <p itemprop="description">
                                 #{if blog.description && blog.description.size() > 0}${blog.description.raw()}#{/if}
                                 #{else}${blog.body.truncateHtml(255)}...#{/else}
