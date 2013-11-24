@@ -3,4 +3,23 @@
 // --------------------------------------------------
 @media (max-width: 480px) {
 
+  body.home {
+    #projects {
+      article.box {
+        width: calc(~"100% - 20px");
+        float: none;
+        margin: 10px auto;
+      }
+    }
+    #resources {
+      div {
+        > div {
+          width: calc(~"100% - 20px");
+          float: none;
+          margin: 10px auto !important;
+        }
+      }
+    }
+  }
+
 }

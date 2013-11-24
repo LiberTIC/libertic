@@ -24,6 +24,8 @@
             height: 0;
             position: absolute;
             min-height: inherit;
+            background-color: @white;
+            z-index: 9999;
 
             ul {
               overflow: hidden;
@@ -31,9 +33,14 @@
               li {
                 display: block;
                 padding: 0;
+
                 a {
                   display: block;
                   text-align: center;
+
+                  &:hover {
+                    background-color: @primary;
+                  }
                 }
               }
             }
@@ -95,7 +102,7 @@
   body.home {
     #projects {
       article.box {
-        width: 500px;
+        width: 450px;
         float: none;
         margin: 30px auto;
       }
