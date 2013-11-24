@@ -35,6 +35,7 @@ GET     /admin                                                 Application.admin
 #
 *       /                                                      module:cms
 *       /auth                                                  module:securesocial
+*       /auth                                                  module:secure
 GET     /user/{<[0-9]+>userId}                                 User.view
 GET     /user/me                                               User.myProfile
 GET     /user/me/edit                                          User.edit
