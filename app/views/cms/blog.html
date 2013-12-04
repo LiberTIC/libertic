@@ -11,7 +11,7 @@
     <meta property="og:title" content="${page.title}">
     <meta property="og:description" content="${page.description}">
     #{if page.image}
-        <meta property="og:image" content="@{cms.Frontend.image()}?name=${page.image?.name}">
+        <meta property="og:image" content="@@{cms.Frontend.image()}?name=${page.image?.name}">
     #{/if}
 #{/set}
 
