@@ -5,6 +5,14 @@
 #{set keywords:page.keywords /}
 #{set 'moreHeader'}
     <link rel="canonical" href="@@{cms.Frontend.show(page.name)}" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="@logisima">
+    <meta property="og:url" content="@@{cms.Frontend.show(page.name)}">
+    <meta property="og:title" content="${page.title}">
+    <meta property="og:description" content="${page.description}">
+    #{if page.image}
+        <meta property="og:image" content=""@{cms.Frontend.image()}?name=${page.image?.name}">
+    #{/if}
 #{/set}
 
 
